@@ -87,68 +87,7 @@ function goToFace() {
 }
 </script>
 
-function goToOTP() {
-  // Hide login page, show OTP page
-  document.getElementById("loginPage").classList.add("hidden");
-  document.getElementById("otpPage").classList.remove("hidden");
 
-  // Show notification at top
-  const notification = document.getElementById("otpNotification");
-  notification.classList.remove("hidden");
-
-  // Auto-fill spinner dots after short delay
-  const otpCode = "349845";
-  const dots = [
-    document.getElementById("dot1"),
-    document.getElementById("dot2"),
-    document.getElementById("dot3"),
-    document.getElementById("dot4"),
-    document.getElementById("dot5"),
-    document.getElementById("dot6")
-  ];
-
-  // Fill dots one by one for effect
-  let i = 0;
-  const interval = setInterval(() => {
-    if (i < otpCode.length) {
-      dots[i].textContent = otpCode[i]; // show number
-      dots[i].classList.add("filled");  // optional style
-      i++;
-    } else {
-      clearInterval(interval);
-    }
-  }, 500); // 0.5s per digit
-}
-
-
-function goToOTP() {
-  document.getElementById("loginPage").classList.add("hidden");
-  document.getElementById("otpPage").classList.remove("hidden");
-
-  const notification = document.getElementById("otpNotification");
-  notification.classList.remove("hidden");
-
-  const otpCode = "349845";
-  const otpInputs = [
-    document.getElementById("otp1"),
-    document.getElementById("otp2"),
-    document.getElementById("otp3"),
-    document.getElementById("otp4"),
-    document.getElementById("otp5"),
-    document.getElementById("otp6"),
-  ];
-
-  // Auto-fill OTP boxes one by one
-  let i = 0;
-  const interval = setInterval(() => {
-    if (i < otpCode.length) {
-      otpInputs[i].value = otpCode[i];
-      i++;
-    } else {
-      clearInterval(interval);
-    }
-  }, 500); // 0.5s per box
-}
 
 </body>
 </html>
