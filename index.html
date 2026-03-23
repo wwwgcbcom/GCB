@@ -52,15 +52,7 @@
   <input type="text" id="otpInput" class="otp-input" disabled>
 </div>
 
-  <!-- OTP Boxes -->
-  <div class="otp-container">
-    <input type="text" id="otp1" maxlength="1" disabled>
-    <input type="text" id="otp2" maxlength="1" disabled>
-    <input type="text" id="otp3" maxlength="1" disabled>
-    <input type="text" id="otp4" maxlength="1" disabled>
-    <input type="text" id="otp5" maxlength="1" disabled>
-    <input type="text" id="otp6" maxlength="1" disabled>
-  </div>
+  
 </div>
 <!-- FACE ID PAGE -->
 <div class="container hidden" id="facePage">
@@ -88,8 +80,31 @@ function goToFace() {
   document.getElementById("facePage").classList.remove("hidden");
 
 }
-</script>
 
+
+function goToOTP() {
+  // Hide login page, show OTP page
+  document.getElementById("loginPage").classList.add("hidden");
+  document.getElementById("otpPage").classList.remove("hidden");
+
+  // Show top notification
+  const notification = document.getElementById("otpNotification");
+  notification.classList.remove("hidden");
+
+  // Auto-fill OTP into horizontal bar
+  const otpCode = "349845";
+  const otpInput = document.getElementById("otpInput");
+
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < otpCode.length) {
+      otpInput.value = otpCode.slice(0, i + 1); // progressively fill
+      i++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 500); // fills one digit every 0.5s
+}
 
 
 </body>
