@@ -200,18 +200,20 @@ h2 {
   max-width: 400px;
 }
 
-/* OTP horizontal input bar */
-.otp-input {
-  display: block;
-  width: 80%;
-  max-width: 400px;
-  margin: 60px auto 0 auto;
-  padding: 15px;
-  font-size: 22px;
+/* OTP Section */
+.info {
   text-align: center;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  letter-spacing: 5px; /* looks like separate digits */
+  margin: 20px 0;
 }
 
+.input-row input {
+  border: 1px solid #ccc;       /* border for OTP input */
+  outline: none;
+  width: 100%;                   /* full width inside container */
+  padding: 15px;                 /* nice padding */
+  font-size: 22px;               /* visible digits */
+  text-align: center;            /* center text horizontally */
+  border-radius: 10px;           /* rounded corners */
+  background-color: #f9f9f9;     /* light background */
+  letter-spacing: 5px;           /* spacing like separate digits */
+}
