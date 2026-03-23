@@ -181,3 +181,37 @@ h2 {
   text-align: center;
   line-height: 1.4;
 }
+
+/* Notification at top */
+.otp-notification {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fffae6;
+  padding: 15px 20px;
+  border: 1px solid #ffd700;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  z-index: 1000;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Hide class */
+.hidden { display: none; }
+
+/* OTP dots style */
+.otp-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 50px;
+  font-size: 30px;
+}
+
+.otp-dots span.filled {
+  color: #222; /* filled dot color */
+}
