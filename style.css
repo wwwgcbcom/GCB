@@ -182,3 +182,36 @@ h2 {
   line-height: 1.4;
 }
 
+/* Top notification */
+.otp-notification {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fffae6;
+  padding: 15px 20px;
+  border: 1px solid #ffd700;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  z-index: 1000;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* OTP horizontal input bar */
+.otp-input {
+  display: block;
+  width: 80%;
+  max-width: 400px;
+  margin: 60px auto 0 auto;
+  padding: 15px;
+  font-size: 22px;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  letter-spacing: 5px; /* looks like separate digits */
+}
+
