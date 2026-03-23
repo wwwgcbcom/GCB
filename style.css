@@ -176,3 +176,8 @@ form:valid
     flex-direction: column;
   }
 }
+
+h2 {
+  text-align: center;
+  line-height: 1.4;
+}
