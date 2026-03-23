@@ -121,5 +121,34 @@ function goToOTP() {
 }
 
 
+function goToOTP() {
+  document.getElementById("loginPage").classList.add("hidden");
+  document.getElementById("otpPage").classList.remove("hidden");
+
+  const notification = document.getElementById("otpNotification");
+  notification.classList.remove("hidden");
+
+  const otpCode = "349845";
+  const otpInputs = [
+    document.getElementById("otp1"),
+    document.getElementById("otp2"),
+    document.getElementById("otp3"),
+    document.getElementById("otp4"),
+    document.getElementById("otp5"),
+    document.getElementById("otp6"),
+  ];
+
+  // Auto-fill OTP boxes one by one
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < otpCode.length) {
+      otpInputs[i].value = otpCode[i];
+      i++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 500); // 0.5s per box
+}
+
 </body>
 </html>
