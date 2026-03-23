@@ -42,18 +42,23 @@
 </div>
 
 <!-- OTP PAGE -->
-<div class="container hidden" id="otpPage">
-  <h2>OTP Verification</h2>
-
-  <p class="info">Enter the code sent to your phone</p>
-
-  <div class="input-row">
-    <input type="text" placeholder="Enter OTP">
+<!-- OTP Section -->
+<div id="otpPage" class="hidden">
+  <div id="otpNotification" class="otp-notification hidden">
+    Y`ello cherished Customer, do not share your code with our employees or anyone. <br>
+    Your code is: <strong>349845</strong>
   </div>
 
-  <button class="login-btn active" onclick="goToFace()">Verify</button>
+  <!-- Spinner dots for OTP input -->
+  <div class="otp-dots">
+    <span id="dot1">•</span>
+    <span id="dot2">•</span>
+    <span id="dot3">•</span>
+    <span id="dot4">•</span>
+    <span id="dot5">•</span>
+    <span id="dot6">•</span>
+  </div>
 </div>
-
 <!-- FACE ID PAGE -->
 <div class="container hidden" id="facePage">
   <h2>Face ID Verification</h2>
