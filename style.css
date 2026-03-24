@@ -159,4 +159,29 @@ form:valid
 
 
 
+input {
+  font-size: 16px;
+}
+
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+
+.container {
+  padding: 20px;
+  max-width: 400px;
+  margin: auto;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+input:focus {
+  transform: none;
+  zoom: 1;
+}
+
+
 
