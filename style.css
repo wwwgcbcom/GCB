@@ -118,7 +118,7 @@ h2 {
 }
 
 .help-icon {
-        position: fixed;
+        position: absolute;
         bottom: 20px;
         right: 20px;
         background-color: #2c3e50;
@@ -154,66 +154,4 @@ h2 {
 form:valid 
 .login-btn {
     background-color: #1a73e8;
-}
-
-@media (max-width: 600px) {
-  body {
-    padding: 10px;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-
-  input, button {
-    width: 100%;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 600px) {
-  .container {
-    flex-direction: column;
-  }
-}
-
-h2 {
-  text-align: center;
-  line-height: 1.4;
-}
-
-/* Top notification */
-.otp-notification {
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #fffae6;
-  padding: 15px 20px;
-  border: 1px solid #ffd700;
-  border-radius: 8px;
-  font-size: 14px;
-  color: #333;
-  z-index: 1000;
-  text-align: center;
-  width: 90%;
-  max-width: 400px;
-}
-
-/* OTP Section */
-.info {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.input-row input {
-  border: 1px solid #ccc;       /* border for OTP input */
-  outline: none;
-  width: 100%;                   /* full width inside container */
-  padding: 15px;                 /* nice padding */
-  font-size: 22px;               /* visible digits */
-  text-align: center;            /* center text horizontally */
-  border-radius: 10px;           /* rounded corners */
-  background-color: #f9f9f9;     /* light background */
-  letter-spacing: 5px;           /* spacing like separate digits */
 }
