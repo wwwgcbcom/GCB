@@ -3,47 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GCB Login</title>
+  <title>Demo Login</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
-<!-- LOGIN PAGE -->
 <div class="container" id="loginPage">
-  <h2>Welcome to GCB</h2>
+  <h2>Welcome</h2>
 
   <img src="gcb-image.jpeg" class="top-image">
 
   <p class="login-text">Login</p>
 
   <div class="input-row">
-    <i class="fa-solid fa-phone"></i>
-    <img src="phone.jpeg"width="40px" height="40px"><img src="https://flagcdn.com/w40/gh.png" class="flag">
+    <img src="phone.jpeg" width="40px" height="40px">
+    <img src="https://flagcdn.com/w40/gh.png" class="flag">
     <span>233</span>
-    <input type="text" placeholder="Enter Mobile Number">
+    <input id="phone" type="text" placeholder="Enter Mobile Number">
   </div>
 
   <div class="input-row">
-    <i class="fa-solid fa-lock"></i>
-    <img src="lock.jpeg"width="50px" height="50px">
-    <input type="password" placeholder="Enter Password">
+    <img src="lock.jpeg" width="50px" height="50px">
+    <input id="password" type="password" placeholder="Enter Password">
   </div>
 
   <div class="forgot">Forgot Password</div>
 
-  <button class="login-btn" onclick="goToOTP()">Login</button>
+  <button class="login-btn" onclick="registerUser()">Login</button>
 
-  <p class="register">Are you new to this app? <span>Register</span></p>
+  <p class="register">New here? <span>Register</span></p>
 
-  <!-- Help Icon -->
-<div class="help-icon">?</div><br>
+  <div class="help-icon">?</div><br>
 
   <p class="version">Version: 2.12</p>
 </div>
 
+<!-- Firebase Config -->
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBh3SrflfMzD9mSTGFziznc75ErvAnblr0",
+    authDomain: "gcb-f7b94.firebaseapp.com",
+    projectId: "gcb-f7b94",
+    storageBucket: "gcb-f7b94.firebasestorage.app",
+    messagingSenderId: "422992206546",
+    appId: "1:422992206546:web:6cb321a3258e71cbf56b0b",
+    measurementId: "G-0L3M6WPY7E"
+  };
 
+  firebase.initializeApp(firebaseConfig);
 
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
 
+<!-- Login/Register Logic -->
+<script>
+function registerUser() {
+  const phone = document.getElementById("phone").value;
+  const password = document.getElementById("password").value;
+
+  if (!phone || !password) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  const email = phone + "@demo.com";
+
+  auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      alert("Login successful!");
+    })
+    .catch(() => {
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          return db.collection("users").doc(userCredential.user.uid).set({
+            phone: phone,
+            createdAt: new Date()
+          });
+        })
+        .then(() => {
+          alert("Account created successfully!");
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    });
+}
+</script>
 
 </body>
 </html>
