@@ -88,8 +88,12 @@ h2 {
 
 /* OTP */
 .info {
+  position: absolute;
+  top: 10px;              /* pushes it to top */
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
-  margin: 20px 0;
+  width: 100%;
 }
 
 /* FACE ID */
@@ -118,7 +122,7 @@ h2 {
 }
 
 .help-icon {
-        position: absolute;
+        position: fixed;
         bottom: 20px;
         right: 20px;
         background-color: #2c3e50;
